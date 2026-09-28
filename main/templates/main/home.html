@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Portal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0a0f18;
+            color: #e6f7ff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 8px;
+            color: #00e5ff;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            color: #7f9aaa;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        /* MAIN TABLE CONTAINER */
+        .student-table {
+            background: #111a27;
+            padding: 25px;
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #24576a;
+        }
+
+        th,
+        td {
+            border: 1px solid #24576a;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* TABLE HEADER */
+        th {
+            background: #162636;
+            color: #00e5ff;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* TABLE DATA */
+        td {
+            background: #0e1722;
+            color: #d9f6ff;
+            font-size: 18px;
+        }
+
+        /* FUTURISTIC HOVER EFFECT */
+        tr:hover td {
+            background: #132936;
+            color: #00e5ff;
+        }
+
+        /* EMPTY MESSAGE */
+        .empty {
+            text-align: center;
+            color: #7f9aaa;
+            padding: 30px;
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #506b7a;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>STUDENT PORTAL</h1>
+            <p>Student Information Management System</p>
+        </div>
+
+
+        <!-- ONE BIG TABLE -->
+        <div class="student-table">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Course</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for student in students %}
+
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.course }}</td>
+                        <td>{{ student.age }}</td>
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="3" class="empty">
+                            No student records found.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="footer">
+            Django Student Portal • Quiz 3
+        </div>
+
+    </div>
+
+</body>
+</html>
